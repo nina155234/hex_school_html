@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- 基礎設定 -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" href="favicon.ico">
+
+<!-- RWD -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- meta -->
+    <meta name="description" content="使用 html 做網站">
+    <meta name="keywords" content="關鍵字一、二、三">
+
+    <meta property="og:title" content="使用 html 做網站">
+    <meta property="og:description" content="使用 html 做網站，六角學院的最終作業">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="FB 上的網址">
+    <meta property="og:image" content="FB 圖片">
+
+<!-- title -->
     <title>使用html做網站</title>
+
+<!-- css -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -16,7 +35,9 @@
                     粉絲團
                 </a>
             </li>
-            <div class="divider"></div>
+            <li class="divider"></li>
+            <!-- ul 裡面只能放 li 或另一個 ul -->
+            <!-- <div class="divider"></div> -->
             <li class="twitter">
                 <a href="#">
                     <img src="image/twitterIcon.png" alt="twitter_icon">
@@ -25,9 +46,11 @@
             </li>
         </ul>
         <header class="header">
-            <a href="#">
+            <h1><a href="#">六角學院</a></h1>
+            <!-- <a href="#">
                 <h1>六角學院</h1>
-            </a>
+            </a> -->
+            <!-- 建議取代成 h1 包 a 標籤 -->
             <ul class="menu">
                 <li class="active">
                     <a href="#">首頁</a>
@@ -124,15 +147,18 @@
         <section class="form-section">
             <h3>對我們課程有興趣嗎？<br>歡迎留下您的資料</h3>
             <form class="form" action="index.html">
-                <textarea class="context" name="" placeholder="有什麼想對我們說的？" cols="30" rows="10"></textarea>
+                <!-- <textarea class="context" name="" placeholder="有什麼想對我們說的？" cols="30" rows="10"></textarea> -->
+                <!-- textarea 建議改以 width 來設定寬度，因為 cols 在不同瀏覽器會有不同的寬度，容易有跑板問題（如果已設定 width，可以將 cols 屬性移除）。 -->
+                <textarea class="context" name="" placeholder="有什麼想對我們說的？" rows="10"></textarea>
                 <div class="info">
                     <div class="text-input">
                         <label for="name">姓名</label>
                         <input type="text" name="name" id="name" placeholder="請輸入姓名">
                         <label for="tel">電話</label>
-                        <input type="text" name="tel" id="tel" placeholder="請輸入手機號碼">
+                        <!-- input 的 type，一般文字可用 text，若是電話可改為 tel，email 可改為 email -->
+                        <input type="tel" name="tel" id="tel" placeholder="請輸入手機號碼">
                         <label for="mail">信箱</label>
-                        <input type="text" name="mail" id="mail" placeholder="請輸入電子郵件">
+                        <input type="email" name="mail" id="mail" placeholder="請輸入電子郵件">
                     </div>
                     <input class="button" type="submit" name="" value="送出">
                 </div>
@@ -143,9 +169,11 @@
             </a>
             <div class="contact">
                 <ul>
-                    <li>聯絡我們：<a href="#">hexschool@gmail.com</a>
-                    </li>
-                    <li>電話：<a href="#">0999123456</a></li>
+                    <!-- <li>聯絡我們：<a href="#">hexschool@gmail.com</a></li>
+                    <li>電話：<a href="#">0999123456</a></li> -->
+                    <!-- 使用 emmet 語法 a:mail , a:tel 增加使用者體驗，透過手機點擊會自動開啟相對應的功能 -->
+                    <li>聯絡我們：<a href="mailto:hexschool@gmail.com">hexschool@gmail.com</a></li>
+                    <li>電話：<a href="tel:+886999123456">0999123456</a></li>
                 </ul>
             </div>
         </footer>

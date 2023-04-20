@@ -1,3 +1,5 @@
+/* css reset */
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -51,9 +53,16 @@ body {
 	line-height: 1.5;
 }
 
+/* index css */
+.bg-primary{
+    width: 100%;
+}
+
 .wrapper {
     margin: 0 auto;
-    width: 100%;
+    /* width: 100%; */
+    /* 不建議用 100%，裝置寬度太大時，難閱讀，建議還是設一個最大寬度 */
+    width: 1024px;
 }
 
 .social_media {
@@ -156,23 +165,30 @@ body {
     background-size: cover;
     height: 348px;
     position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .banner .text-background{
     background: rgba(0,0,0,0.15);
     height: 160px;
     position: absolute;
-    top: 96px;
+    /* top: 50%;
+    transform: translateY(-50%); */
     width: 100%;
-    display: flex;
+    /* 不需設定 flex 可以移除，設定 top: 50% 即可 */
+    /* display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; */
     padding-inline: 16px;
+    /* .banner .text-background 設定的 padding 會造成畫面底下產生滾動軸，影響操作體驗，建議補上     box-sizing: border-box;。 */
+    box-sizing: border-box;
 }
 
 .banner .text-background h2 {
     color: white;
     font-size: 36px;
+    transform: translateY(25%);
 }
 
 .feature {
@@ -189,12 +205,14 @@ body {
     align-items: center;
     padding: 24px 20px;
     border-radius: 4px;
+    /* hover 效果的這行，建議放到這裡，這樣移出 hover 也會有效果 */
+    transition: all .3s ease;
 }
 
 .feature > li:hover {
     box-shadow: 0 5px 4px rgba(0,0,0,0.2);
     transform: translate(0, -5px);
-    transition: all .3s ease;
+    /* transition: all .3s ease; */
     cursor: pointer;
 }
 
@@ -284,9 +302,12 @@ body {
 .form input, .form textarea {
     padding: 8px;
     width: 100%;
+    /* textarea 建議使用 width 來控制寬度 而非 textarea 的 cols 屬性，每個瀏覽器 cols 的寬度不一致可能造成跑版 */
     border-radius: 4px;
     border: none;
     box-sizing: border-box;
+    /* 可以使用 resize:none; 禁止放大縮小此元件 */
+    resize: none;
 }
 
 .form textarea,
@@ -296,8 +317,9 @@ body {
 }
 
 .form .info {
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
+    /* 可以不設定送出按鈕的對齊，在 button 這設定 display: block，與 margin-left: auto; */
     gap: 4px;
     align-items: end;
 }
@@ -316,6 +338,8 @@ body {
     background: #00cc99;
     color: white;
     cursor: pointer;
+    display: block;
+    margin-left: auto;
 }
 
 .form .button:hover {
